@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  talker:
+    # Pulled using 'docker pull osrf/ros:jazzy-desktop'
+    image: osrf/ros:jazzy-desktop
+    command: ros2 run demo_nodes_cpp talker
+  listener:
+    image: osrf/ros:jazzy-desktop
+    command: ros2 run demo_nodes_cpp listener
+    depends_on:
+      - talker
